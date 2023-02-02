@@ -1,12 +1,16 @@
+//import
+import {login} from "./login.js";
+
 
 // Récupération des travaux depuis le backend
 const reponse = await fetch ("http://localhost:5678/api/works");
-const repnoseWorks = await reponse.json();
+const reponseWorks = await reponse.json();
 
-console.log (repnoseWorks);
+console.log (reponseWorks);
 
 //Affichage des travaux
 function worksWiew(works) {
+    document.querySelector(".gallery").innerHTML = '';
     for (let i=0 ; i < works.length ; i++ ) {
         const workElement = document.createElement("figure");
         const workImg = document.createElement("img");
@@ -22,5 +26,51 @@ function worksWiew(works) {
     }
 }
 
-worksWiew(repnoseWorks);
+worksWiew(reponseWorks);
+
+
+//bouton filtres
+
+//fonction de suppression de la classe "Activate" dans l'ensemble des boutons "filtre"
+function supprActivate () {
+    let allChildrenFilter = document.querySelectorAll(".filter");
+    allChildrenFilter.forEach((item)=>item.classList.remove("activate"));
+}
+
+//bouton Filtre => Tous
+const boutonFiltreTous = document.querySelector("#tous");
+boutonFiltreTous.addEventListener("click", function(){
+    worksWiew(reponseWorks);
+    supprActivate ();
+    boutonFiltreTous.classList.add("activate");
+})
+
+//bouton Filtre => Objets
+const boutonFiltreObjet = document.querySelector("#objets");
+boutonFiltreObjet.addEventListener("click", function(){
+    const reponseWorksObjet = reponseWorks.filter(i => i.categoryId == 1);
+    worksWiew(reponseWorksObjet);
+    supprActivate ();
+    boutonFiltreObjet.classList.add("activate");
+})
+
+//bouton Filtre => appartements
+const boutonFiltreAppartements = document.querySelector("#appartements");
+boutonFiltreAppartements.addEventListener("click", function(){
+    const reponseWorksAppartements = reponseWorks.filter(i => i.categoryId == 2);
+    worksWiew(reponseWorksAppartements);
+    supprActivate ();
+    boutonFiltreAppartements.classList.add("activate");
+})
+
+//bouton Filtre => hotels
+const boutonFiltreHotels = document.querySelector("#hotels");
+boutonFiltreHotels.addEventListener("click", function(){
+    const reponseWorksHotels = reponseWorks.filter(i => i.categoryId == 3);
+    worksWiew(reponseWorksHotels);
+    supprActivate ();
+    boutonFiltreHotels.classList.add("activate");
+})
+
+
 

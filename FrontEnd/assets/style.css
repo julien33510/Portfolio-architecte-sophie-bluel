@@ -15,7 +15,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video, {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -186,3 +186,39 @@ footer nav ul {
 	margin: 2em
 }
 
+
+/*Ajout Front End */
+body {
+	background-color: #FFFEF8;
+}
+
+.filters {
+	display: flex;
+	justify-content: center;
+	padding-top: 15px;
+	padding-bottom: 30px;
+}
+.filter {
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 16px;
+	color: #1D6154;
+	border: 1px solid #1D6154;
+	border-radius: 20px;
+	padding: 10px 20px;
+	margin : 0 8px;
+}
+
+.filter:hover {
+	cursor: pointer;
+	box-shadow: 0 8px 8px 0 rgba(0,0,0,0.2);
+}
+
+.activate {
+	background-color: #1D6154;
+	color: white;
+}
+
+.displayNone {
+	display: none;
+}
