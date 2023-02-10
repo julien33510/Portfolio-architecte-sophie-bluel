@@ -1,4 +1,5 @@
-
+//import de fonction
+    import { modeEdition } from "./modeEdition.js";
 
 // Récupération des travaux depuis le backend
     const reponse = await fetch ("http://localhost:5678/api/works");
@@ -84,13 +85,14 @@
             document.location.href="index.html"; 
         });
 
-        
+        //ajout des éléments html du mode édition 
+        modeEdition();
+
     }
 
     
     
 
-//Fonction de logout
 
 
 
