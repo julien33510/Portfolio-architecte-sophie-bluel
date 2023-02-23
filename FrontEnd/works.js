@@ -1,5 +1,10 @@
 //import de fonction
     import { modeEdition } from "./modeEdition.js";
+    import { openModal } from "./modal.js";
+    import { closeModal } from "./modal.js";
+    import {stopPropagation} from "./modal.js";
+    import {createModal} from "./modal.js"; 
+
 
 // Récupération des travaux depuis le backend
     const reponse = await fetch ("http://localhost:5678/api/works");
@@ -9,7 +14,7 @@
 //Affichage des travaux
     function worksWiew(works) {
         document.querySelector(".gallery").innerHTML = '';
-        for (let i=0 ; i < works.length ; i++ ) {
+        for (let i = 0 ; i < works.length ; i++ ) {
             const workElement = document.createElement("figure");
             const workImg = document.createElement("img");
             workImg.crossOrigin = "anonymous";
@@ -87,12 +92,13 @@
 
         //ajout des éléments html du mode édition 
         modeEdition();
+        const boutonModal = document.querySelectorAll(".js-modal").forEach(a => {
+            a.addEventListener("click", openModal);
+        });
+
+        
 
     }
-
-    
-    
-
 
 
 

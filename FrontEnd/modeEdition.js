@@ -23,7 +23,7 @@ export function modeEdition() {
 
     //Creation du couple "icon" et "modifier"
     const coupleIconModifier = document.createElement("div");
-    coupleIconModifier.classList.add("modeEditionMain");
+    coupleIconModifier.classList.add("modeEditionMain", "js-modal");
     const icon = document.createElement("i");
     icon.classList.add("fa-regular", "fa-pen-to-square");
     const pModifier = document.createElement("p");
@@ -55,10 +55,5 @@ export function modeEdition() {
     const h2Initial = document.querySelector("section#portfolio h2");
     const h2InitialParent = h2Initial.parentNode;
     h2InitialParent.replaceChild(coupleIconModifier2,h2Initial);
-
-
-
-
-
 
 }
