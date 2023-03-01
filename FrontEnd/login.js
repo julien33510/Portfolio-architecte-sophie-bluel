@@ -27,6 +27,7 @@
                 console.log(token);
                 window.localStorage.setItem("tokenSession", token);
                 document.location.href="index.html"; 
+                
             } else if (reponseConnect.status == 401) {
                 // Mauvais mot de passe
 
@@ -90,5 +91,5 @@
         };
     })
 
-// document.location.href="http://manouvellepage.com"; 
+
 

@@ -187,6 +187,8 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
+
+
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
@@ -288,6 +290,7 @@ form input:not(#boutonSeConnecter) {
   }
 .error {
 	color: red;
+	text-align: center;
 }  
 
 .divModeEdition {
@@ -347,6 +350,10 @@ form input:not(#boutonSeConnecter) {
 }
 .modalFadeOut {
 	animation: fadeOut .3s both;
+}
+
+.modalFadeOut2s {
+	animation: fadeOut 2s both;
 }
 
 .modal-wrapper {
@@ -425,3 +432,120 @@ form input:not(#boutonSeConnecter) {
 .editer {
 	margin-top: 3px;
 }
+
+input[id='boutonAjouter'] {
+	height: 35px;
+    width: 239px;
+}
+
+hr {
+	margin: 60px 100px 0 100px;
+	border: none;
+	border-top: 1px solid #B3B3B3;
+}
+
+p[id='boutonSupp'] {
+	font-family: 'Syne';
+	font-weight: 400;
+	text-align: center;
+	color: red;
+	margin-top: -10px;
+    margin-bottom: 40px;
+	cursor: pointer;
+}
+
+.modalCardSelect {
+	border: 1px #000000;
+	border-style: outset;
+}
+
+.modalSelectCard img {
+	border: 2px outset;
+	border-color: red;
+	filter: brightness(.5);
+}
+.modalSelectCard .garbage {
+	background-color: white;
+}
+.modalSelectCard i {
+	color: red;
+}
+
+.modalMini {
+	background-color: #E5E5E5;
+	width: 300px;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh  - 20px);
+	padding: 15px;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.modalTitreAlert {
+	font-family: 'Work Sans' ;
+	font-weight: 600;
+	font-size: 20px;
+	text-align: center;
+	
+}
+
+.okBouton {
+    width: 80px;
+    height: 25px;
+    border: #1D6154;
+    border-radius: 8px;
+    background-color: #1D6154;
+    color: white;
+	margin: 0 3px;
+}
+
+.suppBouton {
+    width: 80px;
+    height: 25px;
+    border: indianred;
+    border-radius: 8px;
+    background-color: indianred;
+    color: white;
+	margin: 0 3px;
+}
+
+.okBouton:hover,.suppBouton:hover {
+	cursor: pointer;
+}
+
+.modalMini p {
+	margin: 25px 0;
+	text-align: center;
+}
+
+/* loader */
+	.loader {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+		position: absolute; top: 0px; left: 85px;
+	}
+  
+	.loader__spinner {
+		border: 10px solid #E5E5E5;
+		border-left: 10px solid #1D6154;
+		transform: translateZ(0);
+		animation: spinner 1.1s infinite cubic-bezier(0.785, 0.135, 0.15, 0.86);
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+	}
+  
+	@keyframes spinner {
+		0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		}
+	
+		100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+		}
+	}

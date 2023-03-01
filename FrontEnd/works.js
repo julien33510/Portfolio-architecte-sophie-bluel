@@ -6,27 +6,44 @@
     import {createModal} from "./modal.js"; 
 
 
-// Récupération des travaux depuis le backend
-    const reponse = await fetch ("http://localhost:5678/api/works");
-    const reponseWorks = await reponse.json();
 
+// Récupération des travaux depuis le backend
+    export let reponseWorks ;
+    try { 
+        const reponse = await fetch ("http://localhost:5678/api/works");
+        reponseWorks = await reponse.json();
+    } catch (error) {
+        reponseWorks = "Problème de connexion serveur";
+    }
 
 //Affichage des travaux
     function worksWiew(works) {
-        document.querySelector(".gallery").innerHTML = '';
-        for (let i = 0 ; i < works.length ; i++ ) {
-            const workElement = document.createElement("figure");
-            const workImg = document.createElement("img");
-            workImg.crossOrigin = "anonymous";
-            workImg.src = works[i].imageUrl;
-            workImg.title = works[i].title;
-            const workFigcaption = document.createElement("figcaption");
-            workFigcaption.innerText = works[i].title;
-            workElement.appendChild(workImg);
-            workElement.appendChild(workFigcaption);
+        let gallery = document.querySelector(".gallery");
+        gallery.innerHTML = '';
+        if (reponseWorks == "Problème de connexion serveur") {
+            console.log(reponseWorks)
+            const errorAlert = document.createElement("div");
+            errorAlert.classList.add("error");
+            errorAlert.innerHTML = "Problème de connexion serveur";
+            gallery.appendChild(errorAlert);
+            console.log(errorAlert);
+        } else {
+            for (let i = 0 ; i < works.length ; i++ ) {
+                const workElement = document.createElement("figure");
+                workElement.id = "id"+ works[i].id;
+                const workImg = document.createElement("img");
+                workImg.crossOrigin = "anonymous";
+                workImg.src = works[i].imageUrl;
+                workImg.title = works[i].title;
+                const workFigcaption = document.createElement("figcaption");
+                workFigcaption.innerText = works[i].title;
+                workElement.appendChild(workImg);
+                workElement.appendChild(workFigcaption);
 
-            document.querySelector(".gallery").appendChild(workElement);
+                gallery.appendChild(workElement);
+            }
         }
+        
     }
 
     worksWiew(reponseWorks);
@@ -75,13 +92,12 @@
 
 //Gestion du token
 
-    let token = window.localStorage.getItem("tokenSession");
-    console.log(token);
+    export let token = window.localStorage.getItem("tokenSession");
 
+    console.log(token)
     if (token !== null) {
         //modification de la nav login en logout et insertion de la fonction logout
-        console.log('token n\'est pas null');
-        console.log(typeof(token));
+
         const loginNavElement = document.querySelector("nav ul li a");
         loginNavElement.innerHTML = "logout";
         loginNavElement.removeAttribute("href");
