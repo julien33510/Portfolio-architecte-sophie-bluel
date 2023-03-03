@@ -16,17 +16,19 @@
         reponseWorks = "Problème de connexion serveur";
     }
 
+    export function modifyreponseWorks (value) {reponseWorks = value}
+
+
+
 //Affichage des travaux
     function worksWiew(works) {
         let gallery = document.querySelector(".gallery");
         gallery.innerHTML = '';
         if (reponseWorks == "Problème de connexion serveur") {
-            console.log(reponseWorks)
             const errorAlert = document.createElement("div");
             errorAlert.classList.add("error");
             errorAlert.innerHTML = "Problème de connexion serveur";
             gallery.appendChild(errorAlert);
-            console.log(errorAlert);
         } else {
             for (let i = 0 ; i < works.length ; i++ ) {
                 const workElement = document.createElement("figure");
@@ -94,7 +96,6 @@
 
     export let token = window.localStorage.getItem("tokenSession");
 
-    console.log(token)
     if (token !== null) {
         //modification de la nav login en logout et insertion de la fonction logout
 
@@ -117,4 +118,11 @@
     }
 
 
-
+//récupération des catégories de travaux
+export let reponseWorksCategory ;
+try {
+    const category = await fetch ("http://localhost:5678/api/categories");
+    reponseWorksCategory = await category.json();
+} catch (error) {
+    
+}

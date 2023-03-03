@@ -1,8 +1,10 @@
-import { reponseWorks } from "./works.js";
+import { reponseWorks, modifyreponseWorks } from "./works.js";
 import { token } from "./works.js";
+import { addWorkModal } from "./addWorkModal.js"
 
 let cardSelect ; //on stocke l'id de la card sélectionnée dans la modale
-let newReponseWorks
+
+
 
 //Création d'un loader
 function getLoader() {
@@ -135,24 +137,16 @@ async function suppWithCard (i) {
                "Authorization": "Bearer "+ token
             }
          });
-         console.log('http://localhost:5678/api/works/'+i);
-         console.log(reponseDelete.ok);
-         console.log(reponseDelete);
          if (reponseDelete.ok == true) {
             const divSupp = document.querySelector('.modalSelectCard');
             document.querySelector('.modal-galerie').removeChild(divSupp);
             let idWork = "figure#id"+i;
-            console.log(idWork);
             const figureSupp = document.querySelector(idWork);
-            console.log(figureSupp);
             document.querySelector('#portfolio .gallery').removeChild(figureSupp);
             reponseApiSupp = filtreReponseWorks[0].title + " a bien été supprimé.";
             cardSelect = null ;
-            //modification du newReponseWorks
-            console.log(reponseWorks);
-            console.log('i = '+ i);
-            newReponseWorks = reponseWorks.filter (r => r.id != i);
-            console.log(newReponseWorks);
+            //modification de reponseWorks
+            modifyreponseWorks(reponseWorks.filter (r => r.id != i));
             
             
          }
@@ -187,9 +181,6 @@ async function suppWithCard (i) {
          parentTargetInsertMessage.removeChild(insertMessage);
       },2000)     
 
-      if (reponseWorks !== newReponseWorks ) {
-         reponseWorks = newReponseWorks
-      };
    })
 
 
@@ -350,11 +341,13 @@ export async function openModal (e){
       if (cardSelect === undefined || cardSelect ===  null) {
          suppWithoutCard();
       } else {
-         console.log(cardSelect);
-         console.log(reponseWorks)
          suppWithCard(cardSelect);
       }
    })
+
+   //event listener ajout de travaux
+   const ajoutCard = document.querySelector('#boutonAjouter');
+   ajoutCard.addEventListener('click', addWorkModal);
 
  }
 

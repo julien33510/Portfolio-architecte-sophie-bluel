@@ -356,14 +356,19 @@ form input:not(#boutonSeConnecter) {
 	animation: fadeOut 2s both;
 }
 
-.modal-wrapper {
-	background-color: #FFF;
-	width: 600px;
-	max-width: calc(100vw - 20px);
-	max-height: calc(100vh  - 20px);
-	padding: 15px;
-	border-radius: 10px;
+.modalTransOutleft{
+	animation: transOutleft .3s both;
 }
+.modalTransInleft{
+	animation: transInleft .3s both;
+}
+.modalTransOutRight{
+	animation: transOutRight .3s both;
+}
+.modalTransInRight{
+	animation: transInRight .3s both;
+}
+
 
 @keyframes fadeIn {
 	from {opacity: 0;}
@@ -374,13 +379,68 @@ form input:not(#boutonSeConnecter) {
 	to {opacity: 0;}
 }
 
+@keyframes transOutleft {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(-150px);
+	}
+}
+@keyframes transInleft {
+	from {
+		opacity: 0;
+		transform: translateX(-150px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	
+}
+@keyframes transOutRight {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateX(150px);
+	}
+}
+@keyframes transInRight {
+	from {
+		opacity: 0;
+		transform: translateX(150px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+	
+}
+
+.modal-wrapper {
+	background-color: #FFF;
+	width: 600px;
+	max-width: calc(100vw - 20px);
+	max-height: calc(100vh  - 20px);
+	padding: 15px;
+	border-radius: 10px;
+}
+
+
+
 .js-modal:hover {
 	cursor: pointer;
 }
 
 .cross {
 	display: flex;
-	justify-content: flex-end;
+	flex-direction: row-reverse;
+	justify-content: space-between;
 	margin: 25px;
 	cursor: pointer;
 	
@@ -436,6 +496,7 @@ form input:not(#boutonSeConnecter) {
 input[id='boutonAjouter'] {
 	height: 35px;
     width: 239px;
+	cursor: pointer;
 }
 
 hr {
@@ -472,7 +533,7 @@ p[id='boutonSupp'] {
 }
 
 .modalMini {
-	background-color: #E5E5E5;
+	background-color: #FFF;
 	width: 300px;
 	max-width: calc(100vw - 20px);
 	max-height: calc(100vh  - 20px);
@@ -549,3 +610,84 @@ p[id='boutonSupp'] {
 		transform: rotate(360deg);
 		}
 	}
+
+/* formulaire ajout de photos */
+	.ajoutPhotoForm {
+		width: 420px; 
+		background-color: #E8F1F6;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.boutonAjoutPhotoForm {
+		font-family: 'Syne';
+		font-weight: 400;
+		color: #306685;
+		background-color: #CBD6DC;
+		width: 180px;
+		text-align: center;
+		border-radius: 60px;
+		font-size: 15px!important;
+		height: 40px;
+	}
+	.boutonAjoutPhotoForm:hover{
+		cursor: pointer;
+	}
+
+	.ajoutPhotoForm p {
+		font-size: 10px;
+		color: #444444;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+
+	.ajoutInputForm {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.ajoutInputForm input {
+		width: 420px;
+		font-size: 16px!important;
+	}
+	.ajoutInputForm label {
+		margin-top: 25px;
+	}
+	.ajoutInputForm hr {
+		margin-top: 25px;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.ajoutBoutonForm {
+		margin-top: 20px;
+		margin-bottom: 30px;
+		display: flex;
+		justify-content: center;
+	}
+	.ajoutBoutonForm button {
+		width: 200px;
+		height: 35px;
+		background-color: #A7A7A7;
+		color: #FFF;
+		border: none;
+		border-radius: 25px;
+	}
+	.ajoutBoutonForm button:hover{
+		cursor: pointer;
+	}
+	#modal1 .modalMini {
+		width: 600px;
+		display: block;
+	}
+	.arrowsLeft {
+		margin: 10px 0 0 10px;
+		cursor: pointer;
+	}
+	
+	#modal1 form {
+		display: flex;
+    	flex-direction: column;
+    	align-items: center;
+	}
+

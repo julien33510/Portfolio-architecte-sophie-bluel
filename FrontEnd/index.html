@@ -69,27 +69,38 @@
 	</section>
 </main>
 
-<!-- <aside id="modal3" class="modal">
-	<div class="modalMini js-stop-propagation">
+<!-- <aside id="modal4" class="modal">
+	<div class="modalMini js-stop-propagation modalTransInRight">
 		
 		<p class="modalTitreAlert">
-			Supprimer une gallerie
+			Ajout photo
 		</p>
-		<div style="position: relative;">
-			<img crossorigin="anonymous" src="http://localhost:5678/images/abajour-tahina1651286843956.png" title="Abajour Tahina" style="width: 100%">
-			<div class="loader">
-				<div class="loader__spinner"></div>
-			 </div>
-		</div>
-		<p>Voulez-vous supprimer la gallerie <span style="text-decoration: underline;">Abajour Tahina</span></p>
-		
+		<form>
+			<div class="ajoutPhotoForm">
+				<i class="fa-solid fa-image fa-6x" style="margin-top: 20px; color: #CBD6DC;"></i>
+				<div class="divBouton">
+					<input id="boutonAjouterPhoto"  value="+ Ajouter Photo" class="boutonAjoutPhotoForm">
+				</div>
+				<p>jpg, png : 4mo max</p>
+			</div>
+			<div class="ajoutInputForm">
+				<label for="title">Titre</label><input type="text" name="title" id="title">
+				<label for="category">Catégorie</label><input list="list-category" name="category" id="category">
+				<datalist id="list-category">
+					<option value="Objets"></option>
+					<option value="Appartements"></option>
+					<option value="Hotels & restaurants"></option>
+				</datalist>
+				<hr>
+			</div>
+			<div class="ajoutBoutonForm">
+				<button>Valider</button>
+			</div>
+			
+		</form>		
 
-		<div>
-			<button id="annulBouton" class="okBouton" type="button">Annuler</button>
-			<button id="suppBouton" class="suppBouton" type="button">Supprimer</button>
-		</div>
+
 	</div>
-
 
 </aside> -->
 
