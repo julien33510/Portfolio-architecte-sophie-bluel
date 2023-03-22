@@ -10,7 +10,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="https://kit.fontawesome.com/2589f96d4f.js" crossorigin="anonymous"></script>
-	<script type="module" src="works.js"></script>
+	<script type="module" src="main.js"></script>
 </head>
 <body>
 
@@ -46,18 +46,26 @@
 		<h2>Mes Projets</h2>
 		<div class="filters">
 			<div id="tous" class="filter activate">Tous</div>
-			<div id="objets" class="filter">Objets</div>
-			<div id="appartements" class="filter">Appartements</div>
-			<div id="hotels" class="filter">Hôtels & restaurants</div>
 		</div>
 		<div class="gallery">
-
+			<figure>
+				<div class="imgInitiale"></div>
+				<div class="figcaptionInitial"></div>
+			</figure>
+			<figure>
+				<div class="imgInitiale"></div>
+				<div class="figcaptionInitial"></div>
+			</figure>
+			<figure>
+				<div class="imgInitiale"></div>
+				<div class="figcaptionInitial"></div>
+			</figure>
 		</div>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
 		<p>Vous avez un projet ? Discutons-en !</p>
-		<form action="#" method="post">
+		<form action="#" method="post" id="form">
 			<label for="name">Nom</label>
 			<input type="text" name="name" id="name">
 			<label for="email">Email</label>
@@ -68,41 +76,6 @@
 		</form>
 	</section>
 </main>
-
-<!-- <aside id="modal4" class="modal">
-	<div class="modalMini js-stop-propagation modalTransInRight">
-		
-		<p class="modalTitreAlert">
-			Ajout photo
-		</p>
-		<form>
-			<div class="ajoutPhotoForm">
-				<i class="fa-solid fa-image fa-6x" style="margin-top: 20px; color: #CBD6DC;"></i>
-				<div class="divBouton">
-					<input id="boutonAjouterPhoto"  value="+ Ajouter Photo" class="boutonAjoutPhotoForm">
-				</div>
-				<p>jpg, png : 4mo max</p>
-			</div>
-			<div class="ajoutInputForm">
-				<label for="title">Titre</label><input type="text" name="title" id="title">
-				<label for="category">Catégorie</label><input list="list-category" name="category" id="category">
-				<datalist id="list-category">
-					<option value="Objets"></option>
-					<option value="Appartements"></option>
-					<option value="Hotels & restaurants"></option>
-				</datalist>
-				<hr>
-			</div>
-			<div class="ajoutBoutonForm">
-				<button>Valider</button>
-			</div>
-			
-		</form>		
-
-
-	</div>
-
-</aside> -->
 
 <footer>
 	<nav>

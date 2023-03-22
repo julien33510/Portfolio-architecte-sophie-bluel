@@ -274,6 +274,7 @@ input {
     height: 50px;
     width: 380px;
 	margin-top:5px;
+	font-family: 'Work Sans';
 }
 .divBouton a {
 	text-align: center;
@@ -292,6 +293,9 @@ form input:not(#boutonSeConnecter) {
 	color: red;
 	text-align: center;
 }  
+#portfolio .error {
+	font-size: 18px;
+}
 
 .divModeEdition {
 	background-color: black; 
@@ -429,6 +433,7 @@ form input:not(#boutonSeConnecter) {
 	max-height: calc(100vh  - 20px);
 	padding: 15px;
 	border-radius: 10px;
+	overflow: auto;
 }
 
 
@@ -618,6 +623,7 @@ p[id='boutonSupp'] {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		position: relative;
 	}
 
 	.boutonAjoutPhotoForm {
@@ -633,6 +639,19 @@ p[id='boutonSupp'] {
 	}
 	.boutonAjoutPhotoForm:hover{
 		cursor: pointer;
+	}
+	label.boutonAjoutPhotoForm {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	label.boutonAjoutPhotoForm p {
+		margin: 0;
+		padding: 0;
+		font-size: 15px!important;
+		font-family: 'Syne';
+		font-weight: 400;
+		color: #306685;
 	}
 
 	.ajoutPhotoForm p {
@@ -690,4 +709,68 @@ p[id='boutonSupp'] {
     	flex-direction: column;
     	align-items: center;
 	}
+	.ajoutInputForm input {
+		padding-left: 15px;
+		color: #444444;
+	}
+	.ajoutInputForm input:focus,
+	.ajoutInputForm input:active,
+	.ajoutInputForm input:focus-visible {
+		outline: solid #A7A7A7 !important;
+		border-radius: 3px;
+	}
 
+/*widget de choix de la catégorie*/
+	p.label {
+		margin: 20px 0 0 0;
+    	text-align: initial;
+	}
+	li {
+		color: #444444;
+	}
+	li:hover {
+		background: #A7A7A7;
+		color: #FFFFFF;
+	}
+
+	select {
+		margin-top: 5px;
+		height: 50px;
+		padding-left: 15px;
+		font-family: 'Work Sans';
+		font-size: 14px;
+		box-shadow: 0 4px 14px 0 rgb(0 0 0 / 9%);
+		border: none;
+	}
+
+	input[id='boutonAjouterPhoto'] {
+		opacity: 0;
+		height: 0;
+		padding: 0;
+	}
+
+/* Gestion de la vue de l'index avant le chargement des travaux depuis le back-end*/
+.imgInitiale{
+	max-height: 386px;
+    aspect-ratio: 1/1.4;
+    background-color: rgba(0,0,0,0.15);
+	margin-bottom: 5px;
+	animation: initialVariations .5s alternate infinite;
+}
+
+.figcaptionInitial{
+	height: 14px;
+	max-width: 150px;
+	background-color: rgba(0,0,0,0.15);
+	animation: initialVariations .5s alternate infinite;
+}
+
+@keyframes initialVariations {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0.5;
+	}
+	
+}
