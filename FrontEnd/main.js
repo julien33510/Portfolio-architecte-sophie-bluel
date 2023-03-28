@@ -20,18 +20,15 @@ export function pushreponseWorks (value) {
     reponseWorks.push(value)
 }
 
-// récupération des catégories de travaux dans le back-end
-reponseWorksCategory = await getCategory ();
-// construction des filtres par catégorie dans l'index
-createFilter(reponseWorksCategory)
-
-
-
 // récupération des travaux du back-end
 reponseWorks = await getWorks ();
 // construction de la vue des travaux
 worksWiew(reponseWorks);
 
+// récupération des catégories de travaux dans le back-end
+reponseWorksCategory = await getCategory ();
+// construction des filtres par catégorie dans l'index
+createFilter(reponseWorksCategory)
 
 //Gestion des boutons filtres
     const boutonFiltre = document.querySelectorAll('.filter');
@@ -57,7 +54,4 @@ token = window.localStorage.getItem("tokenSession");
         const boutonModal = document.querySelectorAll(".js-modal").forEach(a => {
             a.addEventListener("click", openModal);
         });
-
-    
-
 }

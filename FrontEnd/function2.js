@@ -35,7 +35,7 @@ export async function getCategory () {
 
 
     } catch (error) {
-        
+        uniqueReponseCategory = "Problème de connexion serveur"
     }
     return uniqueReponseCategory;
 }
@@ -43,15 +43,21 @@ export async function getCategory () {
 //crée des filtres à partir de l'array en paramètre
 export function createFilter (category) {
     const filter = document.querySelector('.filters');
-    for (let i = 0; i < category.length; i++) {
-        const div = document.createElement('div');
-        div.id = category[i].id;
-        div.classList.add('filter');
-        div.innerHTML=category[i].name;
-        filter.appendChild(div);
 
-    }
-    
+    if (category != "Problème de connexion serveur") {
+        for (let i = 0; i < category.length; i++) {
+            const div = document.createElement('div');
+            div.id = category[i].id;
+            div.classList.add('filter');
+            div.innerHTML=category[i].name;
+            filter.appendChild(div);
+        } 
+    } else {
+        const div = document.createElement('div');
+        div.classList.add('error');
+        div.innerHTML=category;
+        filter.appendChild(div);
+    }  
 }
 
 //fonction de création d'une card travaux dans la page index
@@ -587,7 +593,7 @@ async function ajoutProjet (e) {
     if (formTitle === '') {
         const message = "Vous devez ajouter un titre";
         const ajoutFormTitle = document.querySelector('label[for="title"]');
-        alertSpan(message, ajoutFormTitle, 5, 'after');
+        alert(message, ajoutFormTitle, 5, 'after');
     }
     if (formImage.length === 0 || formTitle === '') {
         return
@@ -643,11 +649,14 @@ async function ajoutProjet (e) {
             
 
         } else {
+            //Modale 
+            pbAjoutWork()
+            
             
         }
 
     } catch (error) {
-            console.log(error);
+            pbAjoutWork()
     }
 }
 
@@ -821,4 +830,41 @@ function removeAddWorkModal() {
         const asideModalOrigineChild = document.querySelector('aside#modal1').firstChild;
     },500)
     
+}
+
+function pbAjoutWork () {
+    const aside = document.createElement('aside');
+    aside.classList.add('modal');
+    aside.id='modal2';
+    const modalMini = document.createElement('div');
+    modalMini.classList.add('modalMini','js-stop-propagation');
+    aside.appendChild(modalMini);
+    const pTitre = document.createElement('p');
+    pTitre.classList.add('modalTitreAlert');
+    pTitre.innerHTML="Ajout d'un projet";
+    modalMini.appendChild(pTitre);
+    const divIcon = document.createElement('div');
+    divIcon.style.color = ('indianred');
+    modalMini.appendChild(divIcon);
+    const iconAlert = document.createElement('i');
+    iconAlert.classList.add('fa-solid', 'fa-circle-exclamation', 'fa-2xl');
+    divIcon.appendChild(iconAlert);
+    const pText = document.createElement('p');
+    pText.innerHTML="Une erreur s'est produite. Merci d'essayer à nouveau";
+    modalMini.appendChild(pText);
+    const bouton = document.createElement('button');
+    bouton.classList.add('okBouton');
+    bouton.type = 'button';
+    bouton.innerHTML='OK';
+    modalMini.appendChild(bouton);
+    
+    document.querySelector('body').appendChild(aside);
+
+    const eventBouton = document.querySelector('.okBouton');
+    eventBouton.addEventListener('click', function fermrtureModalSuppWithoutCard(e) {
+        e.preventDefault();
+        const target = document.querySelector('#modal2');
+        eventBouton.removeEventListener('click', fermrtureModalSuppWithoutCard);
+        document.querySelector('body').removeChild(target);
+    })
 }

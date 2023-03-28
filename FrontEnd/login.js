@@ -44,11 +44,11 @@
             } else {
                 //Utilisateur inconnu - Reponse 404
 
-                 //On remet les label "Email" et "Mot de passe" comme au départ
-                 const userNotFound = document.querySelector("form div.divChamp label[for='email']");
-                 userNotFound.innerHTML = "E-mail";
-                 const userNotAuthorized = document.querySelector("form div.divChamp label[for='pass']");
-                 userNotAuthorized.innerHTML = "Mot de passe";
+                //On remet les label "Email" et "Mot de passe" comme au départ
+                const userNotFound = document.querySelector("form div.divChamp label[for='email']");
+                userNotFound.innerHTML = "E-mail";
+                const userNotAuthorized = document.querySelector("form div.divChamp label[for='pass']");
+                userNotAuthorized.innerHTML = "Mot de passe";
                 // on indique l'erreur sur le user
                 userNotFound.innerHTML = "E-mail"; // Si on ne le fait pas à chaque essai on ajoute le txt d'erreur
                 let span = document.createElement("span");
@@ -62,11 +62,6 @@
                 errorAlert.innerText = "Problème de connexion serveur";
                 errorDiv.appendChild(errorAlert);
             }
-
-        
-        
-        //location.href='index.html';
-
     });
 
 //Affichage du password
