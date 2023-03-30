@@ -103,7 +103,7 @@ export function filterBouton(e){
 
     //recupérer quel filtre a été cliqué
     let filterID = e.target.getAttribute('id');
-    console.log(filterID);
+
 
     if (filterID == 'tous') {
         // Activation du bouton 'tous'
@@ -510,7 +510,7 @@ export async function openModal (e){
     //event listener de suppression de card
     const suppCard = document.querySelector('#boutonSupp');
     suppCard.addEventListener('click', function(e){
-        console.log(cardSelect);
+    
         e.preventDefault();
         if (cardSelect === undefined || cardSelect ===  null) {
             suppWithoutCard();
@@ -577,7 +577,6 @@ export function createCardModal (worksModalID, worksModalURL, worksModalTitle) {
 async function ajoutProjet (e) {
     e.preventDefault();
     
-
     //Vérification des inputs :
     //Présence d'une image, d'un titre (il y a toujours une catégorie)
     //ajout de message alerte 

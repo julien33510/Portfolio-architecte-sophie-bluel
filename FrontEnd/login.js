@@ -21,10 +21,8 @@
             });
 
             if (reponseConnect.status == 200) {
-                console.log ("200");
                 reponseConnect = await reponseConnect.json();
                 let token = reponseConnect.token;
-                console.log(token);
                 window.localStorage.setItem("tokenSession", token);
                 document.location.href="index.html"; 
                 
